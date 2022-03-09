@@ -21,7 +21,10 @@ class Job(AbstractJob):
             self.success(data)
 
     def success(self, code: str):
-        send_code_template(self.name, code, TO_EMAIL_ADDRESS)
+        # send_code_template(self.name, code, TO_EMAIL_ADDRESS)
+        print("Success: In practice, to send an email, comment out the line above")
+        print("world time:")
+        print(code)
 
     def fail(self):
         send_error("Error from cron crawler", "Error getting world time", TO_EMAIL_ADDRESS)
