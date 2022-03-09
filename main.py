@@ -25,9 +25,14 @@ def run(path: pathlib2.Path):
         prefix = ".".join(str(rel_path).split("/")[:-1])
         module_path = f"jobs.{prefix}.{module}" if len(prefix) != 0 else f"jobs.{module}"
         logger.info(f"Load and run job {module_path}")
-        job = importlib.import_module(module_path)
-        j = job.Job()
-        j.run()
+        try:
+            job = importlib.import_module(module_path)
+            if hasattr(job, "Job"):
+                # current file has no Job class, could be a helper file, skip
+                j = job.Job()
+                j.run()
+        except ModuleNotFoundError as e:
+            logger.warning(e)
     else:
         for path in path.iterdir():
             run(path)

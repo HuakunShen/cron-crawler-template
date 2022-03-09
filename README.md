@@ -11,6 +11,14 @@ There are 2 job sample files:
 
 jobs can be placed in nested folders under [jobs](./jobs) folder.
 
+The class name for all jobs must be `Job`. 
+
+Non `.py` files can also be placed under [jobs](./jobs) folder but will be ignored, you may add template files if you want.
+
+Helper functions can also be defined in separate files under [jobs](./jobs) folder. All files with a `Job` class will be loaded and the `Job` class will be run.
+
+Note that the initializer of a `Job` class doesn't take any arguments, so define all variables you need within the class.
+
 You can have a subfolder storing daily jobs, another one storing weekly jobs, etc.
 
 # How the jobs are run?
