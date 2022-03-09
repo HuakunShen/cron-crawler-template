@@ -32,5 +32,9 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run the main crawler
+        env:
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          FROM_EMAIL_ADDRESS: ${{ secrets.FROM_EMAIL_ADDRESS }}
+          TO_EMAIL_ADDRESS: ${{ secrets.TO_EMAIL_ADDRESS }}
         run: python main.py
           
