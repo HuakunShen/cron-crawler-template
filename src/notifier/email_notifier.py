@@ -17,7 +17,8 @@ EMAIL_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 MAIL_SERVER = os.environ.get("MAIL_SERVER")
 MAIL_SERVER_ADDR = MAIL_SERVER.split(':')[0]
 MAIL_SERVER_PORT = int(MAIL_SERVER.split(':')[1])
-
+print(MAIL_SERVER_ADDR)
+print(FROM_EMAIL_ADDRESS)
 context = ssl.create_default_context()
 templateLoader = jinja2.FileSystemLoader(searchpath="./src/templates")
 templateEnv = jinja2.Environment(loader=templateLoader)

@@ -1,11 +1,8 @@
-from ctypes import Union
 import os
 import requests
-from src.util import loadenv
 from src.job import AbstractJob
 from src.notifier.email_notifier import send_code_template, send_error
 
-loadenv()
 TO_EMAIL_ADDRESS = os.environ.get("TO_EMAIL_ADDRESS")
 
 
