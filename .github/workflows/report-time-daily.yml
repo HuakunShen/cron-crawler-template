@@ -1,5 +1,5 @@
 # This job is for running one cron job or a subset of cron job
-# Run everyday every 5 hours
+# It runs all jobs under jobs/daily folder daily
 name: Report Time
 
 # Controls when the workflow will run
@@ -8,7 +8,7 @@ on:
   push:
     branches: [ develop ]
   schedule:
-    - cron:  '0 */5 * * *'
+    - cron:  '0 0 * * *'
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -28,5 +28,5 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           FROM_EMAIL_ADDRESS: ${{ secrets.FROM_EMAIL_ADDRESS }}
           TO_EMAIL_ADDRESS: ${{ secrets.TO_EMAIL_ADDRESS }}
-        run: python run.py --modules ./jobs/sub
+        run: python run.py --modules ./jobs/daily
           
