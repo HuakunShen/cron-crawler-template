@@ -1,6 +1,6 @@
 # This job is for running one cron job or a subset of cron job
 # Run everyday every 5 hours
-name: Individual Job
+name: Report Time
 
 # Controls when the workflow will run
 on:
