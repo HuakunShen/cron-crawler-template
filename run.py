@@ -7,7 +7,7 @@ from main import run
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser("Cron Job")
-    parser.add_argument("--modules", nargs="+", required=True)
+    parser.add_argument("--modules", nargs="+", required=True, help="path to modules to run")
     args = parser.parse_args()
     modules = args.modules
     for module_path in modules:

@@ -59,7 +59,7 @@ def send_error(subject: str, msg: str, to_email: Union[str, List[str]]):
     MESSAGE['To'] = to_email
     MESSAGE['From'] = FROM_EMAIL_ADDRESS
     MESSAGE.preamble = "Error"
-    MESSAGE.attach(msg)
+    MESSAGE.attach(MIMEText(msg))
     send_email(MESSAGE.as_string(), to_email)
 
 

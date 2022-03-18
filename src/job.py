@@ -4,7 +4,7 @@ from typing import Any
 
 class AbstractJob(ABC):
     name = "Abstract Job"
-
+    _report = ""
     def __init__(self) -> None:
         super().__init__()
 
@@ -19,3 +19,7 @@ class AbstractJob(ABC):
     @abstractmethod
     def fail(self, payload: Any):
         raise NotImplementedError
+
+    def report(self, payload: str):
+        AbstractJob._report += f"\n{'='*50}\n"
+        AbstractJob._report += payload
